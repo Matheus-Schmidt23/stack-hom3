@@ -1,0 +1,155 @@
+<title>Raio-X da Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --dark:#121212;
+    --white:#FFFFFF;
+    --grey:#898989;
+    --lime:#E7FF00;
+    --font:'Roboto', system-ui, -apple-system, sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:var(--font);
+    background:var(--white);
+    color:var(--black);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+  section{padding:clamp(1.75rem,4.5vw,2.5rem) 0;}
+  h1,h2{font-family:var(--font);letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance;}
+  p{margin:0;}
+  .on-dark{background:var(--dark);color:var(--white);}
+  .on-white{background:var(--white);color:var(--black);}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.4rem;
+    font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--grey);
+  }
+  .on-dark .eyebrow{color:var(--lime);}
+
+  /* ---------- HEADER (título + nota, uma dobra) ---------- */
+  header.memo{padding:2rem 0 2.1rem;}
+  .logo-mark{height:15px;width:auto;margin-bottom:1.4rem;}
+  .memo-top{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem;align-items:end;}
+  @media(min-width:640px){.memo-top{grid-template-columns:1fr auto;gap:2rem;}}
+  header.memo h1{font-size:clamp(1.6rem,4.4vw,2.1rem);font-weight:800;max-width:24ch;}
+  header.memo .dek{margin-top:.6rem;font-size:.92rem;color:rgba(255,255,255,.65);max-width:34rem;}
+  .score-inline{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);padding:.9rem 1.2rem;flex:none;min-width:11rem;}
+  .score-inline .tag{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+  .score-inline .big{font-weight:800;font-size:2.5rem;line-height:1;color:var(--lime);margin-top:.3rem;font-variant-numeric:tabular-nums;}
+  .score-inline .big small{font-size:1rem;font-weight:600;color:rgba(255,255,255,.4);}
+  .memo-meta{
+    margin-top:1.4rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.14);
+    display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:.78rem;color:rgba(255,255,255,.5);
+  }
+  .memo-meta strong{color:var(--white);font-weight:600;}
+  .memo-meta a{color:var(--lime);text-decoration:underline;text-underline-offset:.15em;}
+
+  /* ---------- TABELA (dobra 2) ---------- */
+  .section-head{margin-bottom:1rem;}
+  .section-head h2{font-size:clamp(1.2rem,2.8vw,1.5rem);font-weight:800;margin-top:.5rem;}
+  .section-head p{margin-top:.4rem;font-size:.88rem;color:var(--grey);max-width:36rem;}
+
+  .tbl-scroll{overflow-x:auto;}
+  table.crit{width:100%;border-collapse:collapse;font-size:.82rem;min-width:600px;}
+  table.crit th,table.crit td{text-align:left;padding:.65rem .7rem;border-bottom:1px solid rgba(0,0,0,.1);vertical-align:top;color:var(--black);}
+  table.crit thead th{font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);border-bottom:2px solid var(--black);}
+  table.crit .crit-sub{display:block;margin-top:.2rem;font-size:.74rem;font-weight:400;color:var(--grey);}
+  table.crit td.peso{color:var(--grey);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  table.crit td.nota{font-weight:800;font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  table.crit td.evid{color:#444;max-width:26rem;}
+  table.crit tr:last-child td{border-bottom:none;}
+
+  /* ---------- FECHAMENTO (dobra 3) ---------- */
+  .callout{border-left:3px solid var(--lime);background:rgba(231,255,0,.08);padding:1rem 1.2rem;}
+  .callout .k{font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);margin-bottom:.4rem;}
+  .callout p{font-size:.86rem;color:rgba(255,255,255,.8);max-width:44rem;}
+  .callout strong{color:var(--white);}
+
+  .recs{margin-top:1.5rem;}
+  .rec-line{display:grid;grid-template-columns:1.5rem 1fr;gap:.7rem;padding:.65rem 0;border-top:1px solid rgba(255,255,255,.12);font-size:.86rem;}
+  .rec-line:last-child{border-bottom:1px solid rgba(255,255,255,.12);}
+  .rec-line b{color:var(--lime);font-weight:800;}
+  .rec-line span{color:rgba(255,255,255,.72);}
+  .rec-line span strong{color:var(--white);font-weight:600;}
+
+  footer.foot-line{border-top:1px solid rgba(255,255,255,.14);margin-top:1.5rem;padding-top:1rem;}
+  footer.foot-line p{font-size:.72rem;color:rgba(255,255,255,.4);}
+
+  ::selection{background:var(--lime);color:var(--black);}
+</style>
+
+<header class="memo on-dark">
+  <div class="wrap">
+    <svg class="logo-mark" viewBox="0 0 543 81" xmlns="http://www.w3.org/2000/svg"><path d="M542.366 0.0877952H516.029L486.004 30.4631H454.137V0.0877952H433.682V80.8544H454.137V50.3914H484.6L516.029 80.8544H542.366L503.914 41.1735L542.366 0.0877952ZM81.03 30.4631H78.8353H23.9666C21.7719 30.4631 19.9282 28.6195 19.9282 26.4247V19.9283H91.038L94.5496 0H19.9282C8.95452 0 0 8.95457 0 19.9283V30.4631C0 41.4368 8.95452 50.3914 19.9282 50.3914H24.5812H76.9916C79.1864 50.3914 81.03 52.235 81.03 54.4297V56.8878C81.03 59.0826 79.1864 60.9262 76.9916 60.9262H0V80.8544H81.03C92.0037 80.8544 100.958 71.8999 100.958 60.9262V50.3914C100.958 39.4177 92.0037 30.4631 81.03 30.4631ZM291.55 0.0877952H223.864L220.352 20.0161H287.512C289.706 20.0161 291.55 21.8597 291.55 24.0544V24.9323V30.5509H291.374H230.448C219.475 30.5509 210.52 39.4176 210.52 50.4792V61.0139C210.52 71.9877 219.475 80.9422 230.448 80.9422H272.236C281.63 80.9422 289.443 74.4458 291.55 65.7546V80.9422H311.478V30.6387V20.1039C311.478 9.13017 302.524 0.17559 291.55 0.17559V0.0877952ZM291.55 60.9262H234.487C232.292 60.9262 230.448 59.0826 230.448 56.8878V54.4297C230.448 52.3227 232.029 50.6548 234.048 50.3914H291.55V60.8383V60.9262ZM320.872 40.4711C320.872 62.7697 338.957 80.8544 361.255 80.8544H423.059V60.9262H361.255C349.93 60.9262 340.8 51.7082 340.8 40.4711C340.8 29.234 350.018 20.0161 361.255 20.0161H423.059V0.0877952H361.255C338.957 0.0877952 320.872 18.1725 320.872 40.4711ZM214.119 0.0877952H104.119L100.607 20.0161H161.182C152.315 22.0352 145.643 29.9364 145.643 39.4177V80.8544H165.572V20.0161H210.608L214.119 0.0877952Z" fill="#E7FF00"/></svg>
+    <span class="eyebrow">⚡ Memo interno · Marketing</span>
+
+    <div class="memo-top">
+      <div>
+        <h1>Já fala de carreira. Ainda não explica por que existe.</h1>
+        <p class="dek">Diagnóstico de stack.com.br cruzado com a pesquisa Stack (91 respostas, onda fechada).</p>
+      </div>
+      <div class="score-inline">
+        <span class="tag">Nota do site atual</span>
+        <div class="big">5,7<small>/10</small></div>
+      </div>
+    </div>
+
+    <div class="memo-meta">
+      <span>Para <strong>Farina</strong></span>
+      <span><strong>16 set 2026</strong></span>
+      <span><a href="https://claude.ai/public/artifacts/b7c6635f-c2f9-4f3e-baf5-3da945c4a9d3" target="_blank" rel="noopener">↗ Ver pesquisa completa</a></span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= TABELA ================= -->
+<section class="on-white">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">6 critérios, peso da pesquisa</span>
+      <h2>Onde o site ganha e onde perde</h2>
+      <p>Cada nota é uma evidência encontrada na própria página — escala de 0 a 10.</p>
+    </div>
+    <div class="tbl-scroll">
+      <table class="crit">
+        <thead><tr><th>Critério</th><th>Peso</th><th>Nota</th><th>Evidência no site</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Diferenciar Stack e PM3</strong><span class="crit-sub">tema nº1 dos textos abertos, com caso de quebra de expectativa contratual</span></td><td class="peso">25%</td><td class="nota">4</td><td class="evid">Tem seção própria, mas não responde "por que pagar as duas?" — nem FAQ cobre isso.</td></tr>
+          <tr><td><strong>Carreira à frente de ferramenta</strong><span class="crit-sub">maior virada da onda: carreira (26) passou domínio técnico (25)</span></td><td class="peso">20%</td><td class="nota">6</td><td class="evid">"+28% salário" e "engenharia de carreira" no ar — mas o H1 ainda vende ferramenta.</td></tr>
+          <tr><td><strong>Fala com a maioria (72% da base)</strong><span class="crit-sub">early/late majority quer método validado, não experimentação</span></td><td class="peso">20%</td><td class="nota">6</td><td class="evid">"Sem código" e o método "Build to Learn" já falam a língua de quem quer caminho validado.</td></tr>
+          <tr><td><strong>Fecha o gap desejo × percepção</strong><span class="crit-sub">quer "construir agentes", mas vê a Stack como "sair do operacional"</span></td><td class="peso">15%</td><td class="nota">5</td><td class="evid">Afirma "você precisa construir" sem mostrar o dado que sustenta a tese.</td></tr>
+          <tr><td><strong>Suporte do instrutor é claro</strong><span class="crit-sub">3º fator decisivo de compra; dúvida real de aluno pagante</span></td><td class="peso">10%</td><td class="nota">7</td><td class="evid">Mentoria em grupo e comunidade explícitas no plano de investimento.</td></tr>
+          <tr><td><strong>Prova social das marcas-mãe</strong><span class="crit-sub">alunos citam Alura+PM3 como 2º motivo de assinatura</span></td><td class="peso">10%</td><td class="nota">8</td><td class="evid">"+2.500 alunos" e narrativa Alura+PM3 bem construídas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FECHAMENTO ================= -->
+<section class="on-dark">
+  <div class="wrap">
+    <div class="callout">
+      <div class="k">Ponto mais fraco</div>
+      <p><strong>Diferenciar Stack e PM3</strong> — nota mais baixa do site (4/10) e maior peso da pesquisa (25%). É o tema nº1 dos textos abertos, com um detrator nota 0 por quebra de expectativa com a PM3.</p>
+    </div>
+
+    <div class="recs">
+      <div class="rec-line"><b>1</b><span><strong>Responder Stack vs. PM3 de frente</strong>, fora da FAQ — "são a mesma escola? por que pagar as duas?"</span></div>
+      <div class="rec-line"><b>2</b><span><strong>Demonstrar o gap uso → construção com dado</strong> — 96% usam IA, só 25% chegam a ferramentas como o n8n.</span></div>
+      <div class="rec-line"><b>3</b><span><strong>Reforçar a linguagem de curadoria</strong> para os 72% que não são early adopter.</span></div>
+    </div>
+
+    <footer class="foot-line">
+      <p>Pesquisa Stack by PM3 e Alura (91 respostas, 30 jun–03 set 2026) · leitura de stack.com.br em 16/09/2026.</p>
+    </footer>
+  </div>
+</section>
