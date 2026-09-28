@@ -241,7 +241,7 @@
   }
 
   /* ---------- SECTION 05 cursos ---------- */
-  .course-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--dark-line);border:1px solid var(--dark-line);}
+  .course-grid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--dark-line);border-left:1px solid var(--dark-line);}
   @media(min-width:700px){.course-grid{grid-template-columns:1fr 1fr;}}
   @media(min-width:1100px){.course-grid{grid-template-columns:repeat(4,1fr);}}
   @media(min-width:1100px){.course-grid.course-grid-3{grid-template-columns:repeat(3,1fr);}}
@@ -249,6 +249,8 @@
     background:var(--dark);
     padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.85rem;
     transition:background .15s ease, transform .2s ease;
+    border-right:1px solid var(--dark-line);
+    border-bottom:1px solid var(--dark-line);
   }
   @media(hover:hover){.course-card:hover{background:var(--dark-raised);transform:translateY(-3px);}}
   .course-group{margin-top:clamp(2rem,4vw,2.75rem);}
@@ -582,12 +584,12 @@
             <div class="course-top">
               <div class="course-heading">
                 <span class="course-icon"><svg fill="#F26207" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Replit</title><path d="M2 1.5A1.5 1.5 0 0 1 3.5 0h7A1.5 1.5 0 0 1 12 1.5V8H3.5A1.5 1.5 0 0 1 2 6.5ZM12 8h8.5A1.5 1.5 0 0 1 22 9.5v5a1.5 1.5 0 0 1-1.5 1.5H12ZM2 17.5A1.5 1.5 0 0 1 3.5 16H12v6.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 2 22.5Z"/></svg></span>
-                <span class="course-tool">AI Growth Builder</span>
+                <span class="course-tool">Replit</span>
               </div>
               <span class="course-stats">6H · 9 MÓDULOS</span>
             </div>
             <h3>Toda hipótese vira experimento no ar.</h3>
-            <p>Monte experimentos que conectam hipótese, dados e aprendizado.</p>
+            <p>AI Growth Builder: monte experimentos com Replit, conectando hipótese, dados e aprendizado.</p>
             <div class="course-tags"><span class="tag-outline">Experimentos</span><span class="tag-outline">Dashboards</span></div>
             <a class="btn btn-ghost" href="https://stack.com.br/curso-replit-ai-growth-builder" target="_blank" rel="noopener">Conhecer o curso <span class="arrow">→</span></a>
           </article>
