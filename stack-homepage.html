@@ -211,8 +211,8 @@
   .vs-head.build{order:5;margin-top:2.25rem;}
   .vs-head.build .dot{border-radius:2px;background:var(--lime);}
   .vs-row{display:contents;}
-  @media(hover:hover){.vs-row:hover .vs-cell{background:rgba(0,0,0,.025);}}
-  .vs-cell{order:2;display:flex;align-items:center;gap:.85rem;font-size:1.1rem;font-weight:500;padding:1.05rem 0;border-bottom:1px solid var(--white-line);}
+  @media(hover:hover){.vs-row:hover .vs-cell{background:var(--lime);}}
+  .vs-cell{order:2;display:flex;align-items:center;gap:.85rem;font-size:1.1rem;font-weight:500;padding:1.05rem 0;border-bottom:1px solid var(--white-line);transition:background .15s ease;}
   .vs-cell svg{width:23px;height:23px;flex:none;}
   .vs-cell.use svg{color:var(--grey);}
   .vs-cell.build{order:6;font-weight:600;border-left:2px solid var(--lime);padding-left:1rem;}
@@ -233,7 +233,7 @@
     .vs-head.build{order:0;margin-top:0;}
     .vs-row{display:grid;grid-template-columns:1fr 4rem 1fr;column-gap:clamp(2rem,5vw,4rem);align-items:center;padding:1.15rem 0;border-bottom:1px solid var(--white-line);transition:background .15s ease;}
     .vs-row:last-of-type{border-bottom:none;}
-    @media(hover:hover){.vs-row:hover{background:rgba(0,0,0,.025);}}
+    @media(hover:hover){.vs-row:hover{background:var(--lime);}}
     .vs-cell{order:0;padding:0;border-bottom:none;}
     .vs-cell.build{order:0;}
     .vs-arrow{display:flex;align-items:center;justify-content:center;color:var(--lime);font-weight:700;}
@@ -461,8 +461,8 @@
           </div>
           <div class="vs-arrow" aria-hidden="true"><span class="arrow-mobile">↓</span><span class="arrow-desktop">→</span></div>
           <div class="vs-cell build">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7H15L12.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 17H9L11.5 19.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 12H20" stroke="currentColor" stroke-width="1.4" stroke-dasharray="1 4" stroke-linecap="round"/></svg>
-            <span>Automatizar processos</span>
+            <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 15V11M12 15V8M16 15V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <span>Criar dashboards e ferramentas de inteligência</span>
           </div>
         </div>
 
